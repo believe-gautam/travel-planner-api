@@ -1,0 +1,65 @@
+{
+    "info": {
+      "name": "Travel API Panel Revised",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Configure Provider + Endpoint",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"provider_name\": \"Amadeus\",\n  \"api_key\": \"mock_key\",\n  \"base_url\": \"https://api.mock.com\",\n  \"auth_details\": {\"headers\": {\"Authorization\": \"Bearer mock_key\"}},\n  \"type\": \"flight\",\n  \"endpoint\": \"/flights\",\n  \"http_method\": \"POST\",\n  \"parameters\": {\"Lat\": \"string\", \"Long\": \"string\"},\n  \"response_mapping\": {\"price\": \"fare\", \"name\": \"provider\"},\n  \"test_payload\": {\"Lat\": \"40.7128\", \"Long\": \"-74.0060\"}\n}",
+            "options": { "raw": { "language": "json" } }
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/configure",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "configure"]
+          }
+        }
+      },
+      {
+        "name": "Compare Prices (Flight)",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"Lat\": \"40.7128\",\n  \"Long\": \"-74.0060\",\n  \"type\": \"flight\",\n  \"userId\": \"user123\"\n}",
+            "options": { "raw": { "language": "json" } }
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/compare-prices",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "compare-prices"]
+          }
+        }
+      },
+      {
+        "name": "Compare Prices (Hotels)",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"Lat\": \"40.7128\",\n  \"Long\": \"-74.0060\",\n  \"type\": \"hotels\",\n  \"userId\": \"user123\"\n}",
+            "options": { "raw": { "language": "json" } }
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/compare-prices",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "compare-prices"]
+          }
+        }
+      }
+    ]
+  }
